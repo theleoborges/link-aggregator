@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leonardo Borges — Engineering Leadership & Technology Insights</title>
+<meta name="description" content="Leonardo Borges — Engineering Leadership, AI, and Technology Insights. Chief Engineer, Author, Newsletter Writer.">
+<meta property="og:title" content="Leonardo Borges">
+<meta property="og:description" content="Engineering Leadership & Technology Insights">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>
+// ╔══════════════════════════════════════════════════════════════╗
+// ║  CONFIGURATION — Edit this section to update your page      ║
+// ╚══════════════════════════════════════════════════════════════╝
+const CONFIG = {
+  name: "Leonardo Borges",
+  tagline: "Engineering Leadership & Technology Insights",
+  avatar: "avatar.jpg", // URL to profile image (leave empty for initials fallback)
+
+  links: [
+    { title: "📝 Latest Article", subtitle: "TLTD #38 — Claude Got an 84-Page Constitution", url: "https://open.substack.com/pub/leonardoborges/p/tltd-38-claude-got-an-84-page-constitution" },
+    { title: "👕 Will Work for Tokens | MERCH", subtitle: "Apparel for the AI-pilled", url: "https://shop.willworkfortokens.com/" },
+    { title: "📬 Newsletter — The LeadTech Diet", subtitle: "Engineering leadership meets AI — weekly", url: "https://leonardoborges.substack.com/" },
+    { title: "📚 My Books", subtitle: "On Amazon", url: "https://www.amazon.com/Leonardo-Borges/e/B00VDI9B5S" },
+    { title: "🌐 Website", subtitle: "leo.wtf", url: "http://leo.wtf" },
+  ],
+
+  highlights: [
+    {
+      title: "Claude Got an 84-Page Constitution",
+      description: "Anthropic published Claude's soul document. I read the whole thing so you don't have to.",
+      url: "https://open.substack.com/pub/leonardoborges/p/tltd-38-claude-got-an-84-page-constitution",
+      tag: "Latest",
+      image: "https://substackcdn.com/image/fetch/w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F6123ccc5-d6a4-40dd-af7c-8a08f22593fc_1021x624.png",
+    },
+    {
+      title: "Best Reads of 2025",
+      description: "My curated list of the best articles and books I read in 2025.",
+      url: "https://leonardoborges.substack.com/p/tltd-34-best-reads-of-2025",
+      tag: "Featured",
+      image: "https://substackcdn.com/image/fetch/w_1200,h_675,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fc1667132-f4a0-4e04-a631-00ef66e5d15f_348x522.jpeg",
+    },
+  ],
+
+  socials: [
+    { platform: "instagram", url: "https://instagram.com/theleoborges" },
+    { platform: "tiktok", url: "https://tiktok.com/@theleoborges" },
+    { platform: "threads", url: "https://www.threads.com/theleoborges" },
+  ],
+};
+</script>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0f;
+  --surface: rgba(255,255,255,0.04);
+  --surface-hover: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(255,255,255,0.15);
+  --text: #e8e8ed;
+  --text-secondary: #8a8a9a;
+  --accent: #6366f1;
+  --accent-glow: rgba(99,102,241,0.15);
+  --accent2: #a855f7;
+  --radius: 16px;
+  --radius-sm: 12px;
+}
+
+html { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); min-height: 100%; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1.25rem 4rem;
+  background:
+    radial-gradient(ellipse 60% 50% at 50% -10%, rgba(99,102,241,0.12), transparent),
+    radial-gradient(ellipse 40% 40% at 80% 100%, rgba(168,85,247,0.08), transparent),
+    var(--bg);
+}
+
+.container { width: 100%; max-width: 480px; }
+
+/* ── Avatar ── */
+.avatar-wrap { display: flex; justify-content: center; margin-bottom: 1.25rem; }
+.avatar {
+  width: 96px; height: 96px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; font-weight: 700; color: #fff;
+  box-shadow: 0 0 40px var(--accent-glow);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.avatar:hover { transform: scale(1.05); }
+.avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ── Header ── */
+.header { text-align: center; margin-bottom: 2rem; }
+.header h1 { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
+.header p { color: var(--text-secondary); font-size: 0.9rem; font-weight: 400; }
+
+/* ── Links ── */
+.links { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+.link-btn {
+  display: block; text-decoration: none; color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.link-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--accent-glow), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.link-btn:hover {
+  border-color: var(--border-hover);
+  background: var(--surface-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+.link-btn:hover::before { opacity: 1; }
+.link-btn:active { transform: translateY(0); }
+.link-title { font-weight: 600; font-size: 0.95rem; position: relative; z-index: 1; }
+.link-subtitle { font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.2rem; position: relative; z-index: 1; }
+.link-arrow {
+  position: absolute; right: 1.25rem; top: 50%; transform: translateY(-50%);
+  color: var(--text-secondary); font-size: 0.85rem; z-index: 1;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+.link-btn:hover .link-arrow { transform: translateY(-50%) translateX(3px); color: var(--accent); }
+
+/* ── Highlights ── */
+.highlights { margin-bottom: 2.5rem; }
+.section-label {
+  font-size: 0.7rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--text-secondary);
+  margin-bottom: 0.75rem; padding-left: 0.25rem;
+}
+.highlight-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+@media (max-width: 400px) { .highlight-cards { grid-template-columns: 1fr; } }
+.highlight-card {
+  display: block; text-decoration: none; color: var(--text);
+  background: linear-gradient(135deg, rgba(99,102,241,0.06), rgba(168,85,247,0.04));
+  border: 1px solid rgba(99,102,241,0.15);
+  border-radius: var(--radius);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.highlight-card.has-img { padding: 0; }
+.highlight-card.no-img { padding: 1.25rem; }
+.highlight-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  opacity: 0.6; z-index: 1;
+}
+.highlight-card:hover {
+  border-color: rgba(99,102,241,0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(99,102,241,0.1);
+}
+.highlight-tag {
+  display: inline-block; font-size: 0.65rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--accent); background: var(--accent-glow);
+  padding: 0.2rem 0.6rem; border-radius: 99px;
+  margin-bottom: 0.6rem;
+}
+.highlight-body { padding: 1rem; }
+.highlight-title { font-weight: 600; font-size: 0.88rem; margin-bottom: 0.3rem; line-height: 1.35; }
+.highlight-desc { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.highlight-img {
+  width: 100%; display: block;
+  aspect-ratio: 16/9; object-fit: cover;
+}
+
+/* ── Socials ── */
+.socials {
+  display: flex; justify-content: center; gap: 1.25rem;
+  padding-top: 0.5rem;
+}
+.social-link {
+  display: flex; align-items: center; justify-content: center;
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-secondary); transition: all 0.25s ease;
+}
+.social-link:hover {
+  color: var(--text); border-color: var(--border-hover);
+  background: var(--surface-hover); transform: translateY(-2px);
+}
+.social-link svg { width: 20px; height: 20px; }
+
+/* ── Footer ── */
+.footer {
+  text-align: center; margin-top: 2.5rem;
+  font-size: 0.7rem; color: rgba(255,255,255,0.15);
+}
+
+/* ── Animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate { animation: fadeUp 0.5s ease forwards; opacity: 0; }
+</style>
+</head>
+<body>
+<div class="container" id="app"></div>
+
+<script>
+const SOCIAL_ICONS = {
+  instagram: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>`,
+  tiktok: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46V13a8.28 8.28 0 005.58 2.15V11.7a4.79 4.79 0 01-3.77-1.24V6.69h3.77z"/></svg>`,
+  threads: `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.773.767c-1.012-3.662-3.56-5.357-7.562-5.336-2.68.017-4.67.89-5.915 2.6C5.104 7.15 4.478 9.35 4.455 12c.023 2.648.65 4.847 1.824 6.404 1.245 1.71 3.236 2.583 5.916 2.6 2.082-.013 3.674-.504 4.733-1.46.89-.804 1.408-1.882 1.544-3.203-1.073.544-2.295.834-3.63.834h-.063a6.62 6.62 0 01-4.716-1.948 6.492 6.492 0 01-1.9-4.676c.03-1.763.7-3.4 1.882-4.606C11.258 4.733 12.88 4.08 14.7 4.06h.06c1.64.013 3.09.552 4.312 1.603l-1.86 2.087c-.726-.634-1.625-.962-2.673-.977h-.04c-1.07.013-1.97.415-2.602 1.163-.55.65-.853 1.52-.87 2.513.023 1.116.384 2.05 1.05 2.71.685.678 1.639 1.037 2.76 1.04h.04c.89-.007 1.675-.216 2.338-.624.502-.308.876-.728 1.114-1.244a5.52 5.52 0 00-.775.03c-.397.04-.793.117-1.16.268l-.904-2.602c.647-.225 1.37-.35 2.144-.374h.16c2.378.03 4.15 1.235 4.73 3.21.295 1.005.352 2.14.168 3.38-.283 1.9-1.132 3.454-2.527 4.622C17.886 23.24 15.354 23.98 12.186 24z"/></svg>`,
+};
+
+function render() {
+  const c = CONFIG;
+  const app = document.getElementById('app');
+  const initials = c.name.split(' ').map(w => w[0]).join('');
+  let delay = 0;
+  const d = () => `animation-delay:${delay += 60}ms`;
+
+  let html = `
+    <div class="avatar-wrap animate" style="${d()}">
+      <div class="avatar">${c.avatar ? `<img src="${c.avatar}" alt="${c.name}">` : initials}</div>
+    </div>
+    <div class="header animate" style="${d()}">
+      <h1>${c.name}</h1>
+      <p>${c.tagline}</p>
+    </div>
+  `;
+
+  if (c.highlights?.length) {
+    html += `<div class="highlights"><div class="section-label animate" style="${d()}">Featured Articles</div><div class="highlight-cards">`;
+    for (const h of c.highlights) {
+      const hasImg = !!h.image;
+      html += `<a href="${h.url}" target="_blank" rel="noopener" class="highlight-card ${hasImg ? 'has-img' : 'no-img'} animate" style="${d()}">
+        ${hasImg ? `<img src="${h.image}" alt="" class="highlight-img" loading="lazy">` : ''}
+        <div class="highlight-body">
+          ${h.tag ? `<span class="highlight-tag">${h.tag}</span>` : ''}
+          <div class="highlight-title">${h.title}</div>
+          <div class="highlight-desc">${h.description}</div>
+        </div>
+      </a>`;
+    }
+    html += `</div></div>`;
+  }
+
+  html += `<div class="links">`;
+  for (const l of c.links) {
+    html += `<a href="${l.url}" target="_blank" rel="noopener" class="link-btn animate" style="${d()}">
+      <div class="link-title">${l.title}</div>
+      ${l.subtitle ? `<div class="link-subtitle">${l.subtitle}</div>` : ''}
+      <span class="link-arrow">→</span>
+    </a>`;
+  }
+  html += `</div>`;
+
+  if (c.socials?.length) {
+    html += `<div class="socials animate" style="${d()}">`;
+    for (const s of c.socials) {
+      html += `<a href="${s.url}" target="_blank" rel="noopener" class="social-link" aria-label="${s.platform}">${SOCIAL_ICONS[s.platform] || ''}</a>`;
+    }
+    html += `</div>`;
+  }
+
+  html += `<div class="footer animate" style="${d()}">© ${new Date().getFullYear()}</div>`;
+  app.innerHTML = html;
+}
+
+render();
+</script>
+</body>
+</html>
